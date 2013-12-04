@@ -288,20 +288,18 @@
 
 
 
-- (void)_addViewController:(UIViewController*)cellViewController
+- (void)_addViewController:(UIViewController*)viewController
              atDestination:(CGRect)destination{
-    
     // We add the view controller.
-    [self addChildViewController:cellViewController];
+    [self addChildViewController:viewController];
     // We setup the frame
-    [cellViewController.view setFrame:destination];
+    [viewController.view setFrame:destination];
     // We add its subview
-    [self.view addSubview:cellViewController.view];
-    
-    //[cellViewController.view setAlpha:0.3f];
+    [self.view addSubview:viewController.view];
     
     // We notify the move to parent.
-    [cellViewController didMoveToParentViewController:self];
+    [viewController didMoveToParentViewController:self];
+    
 }
 
 
