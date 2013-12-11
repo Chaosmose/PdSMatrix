@@ -105,6 +105,8 @@
 - (void)displayCellsAnimated:(BOOL)animated withAnimationOptions:(NSUInteger)options{
     PdSMatrixViewController *__weak weakSelf=self;
     NSInteger n=[[weakSelf _casted] viewControllersCount];
+    if(!_matrixCellViewControllers)
+            self.matrixCellViewControllers=[NSMutableArray array];
     if(n>0){
         [UIView animateWithDuration:animated?0.2f:0.f
                               delay:0.f
