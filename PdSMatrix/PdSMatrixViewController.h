@@ -64,4 +64,13 @@
  */
 - (void)displayCellsAnimated:(BOOL)animated withAnimationOptions:(NSUInteger)options;
 
+
+/**
+ *  Enumerates the cells
+ *
+ *  @param block                 the block
+ *  @param useReverseEnumeration reverse the enumeration or not
+ */
+- (void)enumerateCellsWithBlock:(void (^)(id cell, NSUInteger idx, BOOL *stop))block reverse:(BOOL)useReverseEnumeration;
+
 @end

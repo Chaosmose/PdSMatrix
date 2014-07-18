@@ -400,7 +400,28 @@
 }
 
 
+/**
+ *  Enumerates the cells
+ *
+ *  @param block                 the block
+ *  @param useReverseEnumeration reverse the enumeration or not
+ */
+- (void)enumerateCellsWithBlock:(void (^)(id cell, NSUInteger idx, BOOL *stop))block reverse:(BOOL)useReverseEnumeration{
+    NSUInteger idx = 0;
+    BOOL stop = NO;
+    NSEnumerator * enumerator=useReverseEnumeration?[_matrixCellViewControllers reverseObjectEnumerator]: [_matrixCellViewControllers objectEnumerator];
+    for(id cell in enumerator ){
+        block(cell, idx++, &stop);
+        if( stop )
+            break;
+    }
+
+}
+
 #pragma mark - facilities
+
+
+
 
 
 - (PdSMatrixViewController<PdSMatrixCellDelegateProtocol>*)_casted{
